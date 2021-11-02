@@ -4,8 +4,10 @@ package com.symbol.leetcode.array;
  * @Author GGuoLiang
  * @Date 2021/4/8 10:59 上午
  * @Version 1.0
+ * <p>
+ * 呈最多水问题
  */
-public class Solution11 {
+public class MaxArea {
 
 
     /**
@@ -44,5 +46,18 @@ public class Solution11 {
 
     }
 
+
+    public static int maxArea11(int[] height) {
+
+        int x = 0;
+        int y = height.length - 1;
+        int maxArea = 0;
+        while (x < y) {
+            int minHeight = height[x] < height[y] ? height[x++] : height[y--];
+            maxArea = Math.max(maxArea, (y - x + 1) * minHeight);
+        }
+        return maxArea;
+
+    }
 
 }

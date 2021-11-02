@@ -7,8 +7,10 @@ import java.util.Map;
  * @Author GGuoLiang
  * @Date 2021/4/8 10:59 上午
  * @Version 1.0
+ *
+ * 爬楼梯
  */
-public class Solution70 {
+public class ClimbStairs {
 
     private static final Map<Integer, Integer> dp = new HashMap();
 
@@ -74,6 +76,19 @@ public class Solution70 {
         }
         return r;
 
+    }
+
+
+    public static int climbStairs31(int n){
+        int[] nums = new int[n+1];
+        nums[0] = 1;
+        nums[1] = 1;
+
+        for (int i = 2; i < nums.length; i++) {
+            nums[i] = nums[i-1]+nums[i-2];
+        }
+        int num = nums[nums.length - 1];
+        return num;
     }
 
 
